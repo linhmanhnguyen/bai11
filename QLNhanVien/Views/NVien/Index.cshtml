@@ -1,0 +1,33 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table border="1" style="font-size:14px">
+    <tr>
+        <th>Ma NV</th>
+        <th>Ho ten</th>
+        <th>Phong</th>
+        <th>Luong</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Manv</td>
+            <td>@item.Hoten</td>
+            <td>@item.Maphong</td>
+            <td>@item.Luong</td>
+            <td>
+                @Html.ActionLink("Sua", "Sua", new { id = item.Manv.Trim() })|
+                @Html.ActionLink("Chi tiet", "ChiTiet", new { id = item.Manv.Trim() })|
+                @Html.ActionLink("Xoa", "Xoa", new { id = item.Manv.Trim() })
+            </td>
+        </tr>
+
+    }
+
+</table>
+@Html.ActionLink("Them moi", "Them", "NVien");
